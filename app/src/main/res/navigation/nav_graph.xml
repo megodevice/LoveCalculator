@@ -5,11 +5,25 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/calculatorFragment">
 
-
     <fragment
         android:id="@+id/calculatorFragment"
         android:name="com.example.lovecalculator.CalculatorFragment"
         android:label="fragment_calculator"
-        tools:layout="@layout/fragment_calculator" />
+        tools:layout="@layout/fragment_calculator">
+        <action
+            android:id="@+id/action_calculatorFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.lovecalculator.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <!--suppress NavigationFile -->
+        <argument
+            android:name="loveModel"
+            app:argType="com.example.lovecalculator.calculator_data.LoveModel" />
+    </fragment>
 
 </navigation>

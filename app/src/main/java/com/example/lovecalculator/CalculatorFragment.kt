@@ -5,55 +5,50 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.lovecalculator.calculator_data.LoveModel
+import com.example.lovecalculator.calculator_data.LovePresenter
+import com.example.lovecalculator.calculator_data.LoveService
+import com.example.lovecalculator.calculator_data.LoveViewModel
+import com.example.lovecalculator.databinding.FragmentCalculatorBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class CalculatorFragment : Fragment(), LoveViewModel {
+    private var _binding: FragmentCalculatorBinding? = null
+    private val binding get() = _binding!!
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CalculatorFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class CalculatorFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private val lovePresenter = LovePresenter(LoveService().api, this)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calculator, container, false)
+    ): View {
+        _binding = FragmentCalculatorBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CalculatorFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CalculatorFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.apply {
+            btCalculate.setOnClickListener {
+                lovePresenter.getPercentage(etFname.text.toString(), etSname.text.toString())
             }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    override fun showResult(loveModel: LoveModel) {
+        findNavController().navigate(CalculatorFragmentDirections.actionCalculatorFragmentToResultFragment(loveModel))
+    }
+
+    override fun showError(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }
