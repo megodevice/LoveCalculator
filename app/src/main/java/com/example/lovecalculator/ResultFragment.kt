@@ -32,7 +32,7 @@ class ResultFragment : Fragment() {
 
     private fun initListeners() {
         binding.btTryAgain.setOnClickListener {
-            findNavController().navigateUp()
+            navigateToMain()
         }
     }
 
@@ -51,9 +51,13 @@ class ResultFragment : Fragment() {
         requireActivity().onBackPressedDispatcher
             .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    findNavController().popBackStack()
+                    navigateToMain()
                 }
             })
+    }
+
+    private fun navigateToMain() {
+        findNavController().navigate(ResultFragmentDirections.actionResultFragmentToCalculatorFragment())
     }
 
     override fun onDestroy() {
