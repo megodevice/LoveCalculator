@@ -9,9 +9,9 @@ interface LoveAPI {
     @GET("getPercentage")
     fun getLove(
 
-        @Query("fname") fname: String,
+        @Query("fname") firstName: String,
 
-        @Query("sname") sname: String,
+        @Query("sname") secondName: String,
 
         @Header("X-RapidAPI-Key") key: String = "5db1575fb9msh6122d515149eaf0p1c6c14jsncf06093d8182",
 

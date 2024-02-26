@@ -39,8 +39,8 @@ class ResultFragment : Fragment() {
     private fun initView() {
         args.loveModel.apply {
             binding.apply {
-                tvFname.text = fname
-                tvSname.text = sname
+                tvFirstName.text = firstName
+                tvSecondName.text = secondName
                 val percent = "$percentage%"
                 tvPercentage.text = percent
             }

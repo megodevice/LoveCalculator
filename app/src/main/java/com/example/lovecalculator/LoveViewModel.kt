@@ -4,15 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lovecalculator.remote.LoveModel
-import com.example.lovecalculator.remote.LoveService
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class LoveViewModel : ViewModel() {
-    private val repository = Repository(LoveService().api)
+@HiltViewModel
+class LoveViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
     private val _result: MutableLiveData<LoveModel> = MutableLiveData()
     private val _message: MutableLiveData<String> = MutableLiveData()
 
-    fun getPercentage(fname: String, sname: String) {
-        repository.getPercentage(fname, sname, _result, _message)
+    fun getPercentage(firstName: String, secondName: String) {
+        repository.getPercentage(firstName, secondName, _result, _message)
 
     }
 

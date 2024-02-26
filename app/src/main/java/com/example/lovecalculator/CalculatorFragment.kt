@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lovecalculator.databinding.FragmentCalculatorBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CalculatorFragment : Fragment() {
     private var _binding: FragmentCalculatorBinding? = null
     private val binding get() = _binding!!
@@ -36,9 +38,7 @@ class CalculatorFragment : Fragment() {
         }
         viewModel.result.observe(viewLifecycleOwner) {
             findNavController().navigate(
-                CalculatorFragmentDirections.actionCalculatorFragmentToResultFragment(
-                    it
-                )
+                CalculatorFragmentDirections.actionCalculatorFragmentToResultFragment(it)
             )
         }
     }

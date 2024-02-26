@@ -12,14 +12,14 @@
         android:layout_height="0dp"
         android:importantForAccessibility="no"
         android:scaleType="fitEnd"
-        android:src="@drawable/love2"
+        android:src="@drawable/ic_result_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_fname"
+        android:id="@+id/tv_first_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_image"
-        tools:text="fname" />
+        tools:text="@string/first_name" />
 
     <TextView
         android:id="@+id/tv_heart"
@@ -37,17 +37,17 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_fname" />
+        app:layout_constraintTop_toBottomOf="@id/tv_first_name" />
 
     <TextView
-        android:id="@+id/tv_sname"
+        android:id="@+id/tv_second_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_heart"
-        tools:text="fname" />
+        tools:text="@string/second_name" />
 
     <TextView
         android:id="@+id/tv_score"
@@ -59,7 +59,7 @@
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_sname" />
+        app:layout_constraintTop_toBottomOf="@id/tv_second_name" />
 
     <ImageView
         android:id="@+id/iv_heart"

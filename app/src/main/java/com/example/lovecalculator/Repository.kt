@@ -6,30 +6,31 @@ import com.example.lovecalculator.remote.LoveModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class Repository(
+class Repository @Inject constructor(
     private val loveAPI: LoveAPI,
 ) {
     fun getPercentage(
-        fname: String,
-        sname: String,
+        firstName: String,
+        secondName: String,
         result: MutableLiveData<LoveModel>,
         message: MutableLiveData<String>
     ) {
-        if (fname.isNotEmpty() && sname.isNotEmpty())
-            loveAPI.getLove(fname, sname).enqueue(object : Callback<LoveModel> {
+        if (firstName.isNotEmpty() && secondName.isNotEmpty())
+            loveAPI.getLove(firstName, secondName).enqueue(object : Callback<LoveModel> {
                 override fun onResponse(call: Call<LoveModel>, response: Response<LoveModel>) {
                     response.body()?.let {
-                        result.value = it
+                        result.postValue(it)
                     }
                 }
 
                 override fun onFailure(call: Call<LoveModel>, t: Throwable) {
-                    message.value = t.localizedMessage ?: "Error"
+                    message.postValue(t.localizedMessage ?: "Error")
                 }
             })
         else {
-            message.value = "Type a names"
+            message.postValue("Type a names")
         }
 
     }
