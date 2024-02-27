@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/calculatorFragment">
+    app:startDestination="@id/onboardingGetStartedFragment">
 
     <fragment
         android:id="@+id/calculatorFragment"
-        android:name="com.example.lovecalculator.CalculatorFragment"
+        android:name="com.example.lovecalculator.ui.calculator.CalculatorFragment"
         android:label="fragment_calculator"
         tools:layout="@layout/fragment_calculator">
         <!--suppress AndroidElementNotAllowed -->
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.lovecalculator.ResultFragment"
+        android:name="com.example.lovecalculator.ui.result.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result">
         <!--suppress NavigationFile -->
@@ -27,6 +27,27 @@
             app:argType="com.example.lovecalculator.remote.LoveModel" />
         <action
             android:id="@+id/action_resultFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingGetStartedFragment"
+        android:name="com.example.lovecalculator.ui.onboarding.OnboardingGetStartedFragment"
+        android:label="fragment_onboarding_get_started"
+        tools:layout="@layout/fragment_onboarding_get_started" >
+        <action
+            android:id="@+id/action_onboardingGetStartedFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+        <action
+            android:id="@+id/action_onboardingGetStartedFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.lovecalculator.ui.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_calculatorFragment"
             app:destination="@id/calculatorFragment" />
     </fragment>
 

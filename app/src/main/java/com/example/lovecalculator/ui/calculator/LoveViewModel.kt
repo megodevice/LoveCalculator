@@ -1,8 +1,9 @@
-package com.example.lovecalculator
+package com.example.lovecalculator.ui.calculator
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.lovecalculator.Repository
 import com.example.lovecalculator.remote.LoveModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

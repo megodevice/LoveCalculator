@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".ui.onboarding.OnboardingSecondFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_onboarding_2"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:textSize="28sp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/cherishing_love"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:text="@string/it_is_now_no_longer_possible_for_nyou_cherish_love"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

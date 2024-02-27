@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalculatorFragment">
+    tools:context=".ui.calculator.CalculatorFragment">
 
     <ImageView
         android:id="@+id/iv_image"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:importantForAccessibility="no"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_main_fragment"
+        android:src="@drawable/ic_calculator_fragment"
         tools:ignore="MissingConstraints" />
 
     <TextView
