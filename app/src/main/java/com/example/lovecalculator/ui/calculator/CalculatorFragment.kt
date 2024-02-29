@@ -18,10 +18,7 @@ class CalculatorFragment : Fragment() {
     private var _binding: FragmentCalculatorBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: LoveViewModel by viewModels()
-
-    @Inject
-    lateinit var appSharedPreferences: AppSharedPreferences
+    private val viewModel: CalculatorViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,9 +49,6 @@ class CalculatorFragment : Fragment() {
         binding.apply {
             btCalculate.setOnClickListener {
                 viewModel.getPercentage(etFname.text.toString(), etSname.text.toString())
-            }
-            tvHome.setOnClickListener {
-                appSharedPreferences.saveOnboarding(true)
             }
         }
     }

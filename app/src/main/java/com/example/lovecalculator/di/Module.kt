@@ -1,7 +1,10 @@
 package com.example.lovecalculator.di
 
 import android.content.Context
+import androidx.room.Room
 import com.example.lovecalculator.remote.LoveAPI
+import com.example.lovecalculator.room.HistoryDatabase
+import com.example.lovecalculator.room.LoveHistoryDao
 import com.example.lovecalculator.utils.AppSharedPreferences
 import dagger.Module
 import dagger.Provides
@@ -26,4 +29,10 @@ object Module {
     @Provides
     fun provideSharedPreference(@ApplicationContext context: Context): AppSharedPreferences =
         AppSharedPreferences(context = context)
+
+    @Singleton
+    @Provides
+    fun provideHistoryDao(@ApplicationContext context: Context): LoveHistoryDao =
+        Room.databaseBuilder(context, HistoryDatabase::class.java, "history.db")
+            .allowMainThreadQueries().build().historyDao()
 }
