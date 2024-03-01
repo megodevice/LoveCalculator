@@ -3,6 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="calculate">Calculate</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
     <string name="first_name">First Name</string>
     <string name="emoji_heart">❤️</string>
     <string name="your_score">Your Score</string>
@@ -19,4 +22,5 @@
     <string name="it_is_now_no_longer_possible_for_nyou_cherish_love">It is now no longer possible for\nyou cherish love</string>
     <string name="have_a_breakup">Have a breakup?</string>
     <string name="we_have_made_the_correction_for_you_ndon_t_worry_nmaybe_someone_is_waiting_for_you">We have made the correction for you\ndon\'t worry\nMaybe someone is waiting for you!</string>
+    <string name="equals_symbol">=</string>
 </resources>

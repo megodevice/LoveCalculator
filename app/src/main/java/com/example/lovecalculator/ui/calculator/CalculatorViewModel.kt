@@ -8,7 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CalculatorViewModel @Inject constructor(private val repository: CalculatorRepository) : ViewModel() {
+class CalculatorViewModel @Inject constructor(private val repository: CalculatorRepository) :
+    ViewModel() {
     private val _result: MutableLiveData<LoveModel> = MutableLiveData()
     private val _message: MutableLiveData<String> = MutableLiveData()
 

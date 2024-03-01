@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lovecalculator.databinding.FragmentCalculatorBinding
-import com.example.lovecalculator.utils.AppSharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class CalculatorFragment : Fragment() {
@@ -49,6 +47,10 @@ class CalculatorFragment : Fragment() {
         binding.apply {
             btCalculate.setOnClickListener {
                 viewModel.getPercentage(etFname.text.toString(), etSname.text.toString())
+            }
+
+            tvHistory.setOnClickListener {
+                findNavController().navigate(CalculatorFragmentDirections.actionCalculatorFragmentToHistoryFragment())
             }
         }
     }

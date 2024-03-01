@@ -15,8 +15,7 @@ class ResultFragment : Fragment() {
     private val args: ResultFragmentArgs by navArgs()
     private val binding get() = _binding!!
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentResultBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -30,8 +29,18 @@ class ResultFragment : Fragment() {
     }
 
     private fun initListeners() {
-        binding.btTryAgain.setOnClickListener {
-            navigateToMain()
+        binding.apply {
+            btTryAgain.setOnClickListener {
+                navigateToMain()
+            }
+
+            tvHistory.setOnClickListener {
+                findNavController().navigate(ResultFragmentDirections.actionResultFragmentToHistoryFragment())
+            }
+
+            tvHome.setOnClickListener {
+                navigateToMain()
+            }
         }
     }
 
@@ -47,8 +56,9 @@ class ResultFragment : Fragment() {
     }
 
     private fun initBackStack() {
-        requireActivity().onBackPressedDispatcher
-            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     navigateToMain()
                 }
