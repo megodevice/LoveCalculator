@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lovecalculator.databinding.FragmentCalculatorBinding
+import com.example.lovecalculator.utils.AppSharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CalculatorFragment : Fragment() {
@@ -17,6 +19,10 @@ class CalculatorFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: CalculatorViewModel by viewModels()
+
+
+    @Inject
+    lateinit var appSharedPreferences: AppSharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +57,9 @@ class CalculatorFragment : Fragment() {
 
             tvHistory.setOnClickListener {
                 findNavController().navigate(CalculatorFragmentDirections.actionCalculatorFragmentToHistoryFragment())
+            }
+            ivImage.setOnClickListener {
+                appSharedPreferences.saveOnboarding(true)
             }
         }
     }

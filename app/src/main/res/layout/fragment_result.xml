@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.result.ResultFragment">
 
     <ImageView
@@ -29,12 +30,13 @@
         app:layout_constraintTop_toBottomOf="@id/iv_image"
         tools:text="@string/first_name" />
 
-    <TextView
+    <com.airbnb.lottie.LottieAnimationView
+        app:lottie_rawRes="@raw/heart_beat_red"
         android:id="@+id/tv_heart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/emoji_heart"
-        android:textSize="18sp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_first_name" />
@@ -61,41 +63,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_second_name" />
 
-    <ImageView
-        android:id="@+id/iv_heart"
+    <com.airbnb.lottie.LottieAnimationView
+        app:lottie_rawRes="@raw/percent_heart"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/percentage_heart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_score"
-        app:layout_constraintWidth_percent="0.2"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintEnd_toEndOf="@id/tv_percentage"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="@id/tv_percentage"
+        app:layout_constraintTop_toTopOf="@id/tv_percentage"
+        app:layout_constraintBottom_toBottomOf="@id/tv_percentage"
+        app:layout_constraintWidth_percent="0.3"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false" />
 
     <TextView
         android:id="@+id/tv_percentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_heart"
-        app:layout_constraintEnd_toEndOf="@id/iv_heart"
-        app:layout_constraintStart_toStartOf="@id/iv_heart"
-        app:layout_constraintTop_toTopOf="@id/iv_heart"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bt_try_again"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_score"
         tools:text="100%" />
 
     <Button
         android:id="@+id/bt_try_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="@color/main_blue"
         android:paddingHorizontal="28dp"
         android:text="@string/try_again"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_heart" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_percentage" />
 
     <TextView
         android:id="@+id/tv_home"

@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.calculator.CalculatorFragment">
 
     <ImageView
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:importantForAccessibility="no"
-        android:scaleType="centerCrop"
         android:src="@drawable/ic_calculator_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -39,20 +43,20 @@
         app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
 
     <EditText
-        android:inputType="textPersonName"
         android:id="@+id/et_fname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edit_text_name"
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
         android:padding="12dp"
         android:textSize="18sp"
-        android:hint="@string/first_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_first_name"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@id/tv_first_name" />
 
     <TextView
         android:id="@+id/tv_second_name"
@@ -70,16 +74,16 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edit_text_name"
+        android:hint="@string/second_name"
+        android:inputType="textPersonName"
         android:padding="12dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_second_name"
-        android:hint="@string/second_name"
-        android:inputType="textPersonName"
-        tools:ignore="LabelFor"
-        android:autofillHints="" />
+        tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/bt_calculate"
@@ -101,9 +105,9 @@
         android:layout_margin="8dp"
         android:text="@string/home"
         android:textSize="18sp"
+        app:drawableTopCompat="@drawable/heart_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:drawableTopCompat="@drawable/heart_icon" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_history"
@@ -112,9 +116,9 @@
         android:layout_margin="8dp"
         android:text="@string/history"
         android:textSize="18sp"
+        app:drawableTopCompat="@drawable/history_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:drawableTopCompat="@drawable/history_icon" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

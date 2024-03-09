@@ -1,35 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
+    android:background="@color/white"
     tools:context=".ui.onboarding.OnboardingFirstFragment">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.7"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_onboarding_1"
-        tools:ignore="ContentDescription" />
+        android:layout_weight="0.7">
 
-    <TextView
-        android:layout_marginTop="8dp"
-        android:textSize="28sp"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/have_a_good_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_onboarding_1"
+            tools:ignore="ContentDescription" />
 
-    <TextView
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:text="@string/you_should_take_the_time_to_help_those_nwho_need_you"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/onb1" />
+    </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="@string/have_a_good_time"
+            android:textSize="28sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="@string/you_should_take_the_time_to_help_those_nwho_need_you"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
 </LinearLayout>

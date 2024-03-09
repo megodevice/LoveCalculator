@@ -82,6 +82,4 @@ class HistoryFragment : Fragment() {
     private fun navigateToMain() {
         findNavController().navigate(HistoryFragmentDirections.actionHistoryFragmentToCalculatorFragment())
     }
-
-
 }
